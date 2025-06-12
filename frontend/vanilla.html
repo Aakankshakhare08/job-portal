@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body> 
+        <h1>Count - <span id="countHeading"></span></h1>
+        <button onClick="handleClick()"> +1 </button>
+        <button onClick="handleDown()"> -1 </button>
+        <p>The value of count is <span id="countPara"></span></p>
+
+        <script>
+            let count = 0
+            const h1Count = document.getElementById('countHeading')
+            const p1Count = document.getElementById('countPara')
+            const downBtn = document.getElementById('downBtn')
+
+            h1Count.innerHTML = count//updating the value
+            p1Count.innerHTML = count
+
+            if(count == 0){
+                downBtn.setAttribute('disabled',true )
+            }
+
+            function handleClick() {
+                count ++
+                if(count > 0) {
+                    downBtn.removeAttribute('disabled')
+                }
+                console.log(count)
+                h1Count.innerHTML = count //updating the ui
+                p1Count.innerHTML = count
+            }
+
+            function handleDown() {
+                count--
+                if(count == 0){
+                    downBtn.setAttribute('disabled',true)
+                }
+                h1Count.innerHTML = count//updating the value
+                 p1Count.innerHTML = count
+            }
+        </script>
+    </body>
+</html>
